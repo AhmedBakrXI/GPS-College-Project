@@ -1,4 +1,4 @@
-OUR MEETING WILL BE NEXT FRIDAY TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HIS TASK 
+OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HIS TASK 
 
 /********************************* Tasks *********************************/
 
@@ -32,7 +32,7 @@ OUR MEETING WILL BE NEXT FRIDAY TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HIS TAS
 
 /********************************** LCD **********************************/
 /*
- * @ Authors: Abdelrahman-Ahmed-Abdelrahman & MostafaQenawy 
+ * @ Authors: Abdelrahman-Ahmed-Abdelrahman & MohanedKhh
  *	
  *	requirements: LCD.h & LCD.c ## use 8-bit mode
  *		
@@ -89,7 +89,7 @@ OUR MEETING WILL BE NEXT FRIDAY TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HIS TAS
 
 /********************************** UART **********************************/
 /*
- * @ Authors: MohammedMagdyy & MohanadKhh & Ahmed-Samir-Tharwat
+ * @ Authors: MohammedMagdyy & MostafaQenawy & Ahmed-Samir-Tharwat
  *	
  *	requirements: UART.h & UART.c
  *		
