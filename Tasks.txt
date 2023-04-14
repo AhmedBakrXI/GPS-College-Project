@@ -6,7 +6,7 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
 	USE Port B for LCD data        "PB 0,1,2,3,4,5,6,7 ----> LCD Data pins 0,1,2,3,4,5,6,7"
 	Use Port E for LCD Control     "PE 1,2,3 ----> RS,RW,E"
               -----------                   ----------
-             |  TM4C123G  |                 |   LCD    |
+             |  TM4C123G |                 |   LCD    |
              |           |                 |          |
              |        PB7|---------------->|D7        |
              |        PB6|---------------->|D6        |
