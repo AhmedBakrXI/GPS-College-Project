@@ -1,0 +1,104 @@
+OUR MEETING WILL BE NEXT FRIDAY TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HIS TASK 
+
+/********************************* Tasks *********************************/
+
+	USE PD6, PD7 for UART
+	USE Port B for LCD data        "PB 0,1,2,3,4,5,6,7 ----> LCD Data pins 0,1,2,3,4,5,6,7"
+	Use Port E for LCD Control     "PE 1,2,3 ----> RS,RW,E"
+              -----------                   ----------
+             |  TM4C123G  |                 |   LCD    |
+             |           |                 |          |
+             |        PB7|---------------->|D7        |
+             |        PB6|---------------->|D6        |
+             |        PB5|---------------->|D5        |
+             |        PB4|---------------->|D4        |
+             |        PB3|---------------->|D3        |
+             |        PB2|---------------->|D2        |
+             |        PB1|---------------->|D1        |
+             |        PB0|---------------->|D0        |
+             |           |                 |          |
+             |        PE3|---------------->|E         |
+             |        PE2|---------------->|RW        |
+             |        PE1|---------------->|RS        |
+             |           |                  ----------
+             |           |          
+             |           |                  ----------
+             |           |                 |   GPS    |
+             |           |                 |          |
+             |        PD6|---------------->|TX        |
+             |        PD7|---------------->|RX        |
+             |           |                 |          |
+              -----------                   ----------
+
+/********************************** LCD **********************************/
+/*
+ * @ Authors: Abdelrahman-Ahmed-Abdelrahman & MostafaQenawy 
+ *	
+ *	requirements: LCD.h & LCD.c ## use 8-bit mode
+ *		
+ *  functions:
+ *		- void LCD_Init(void)					// initialize lcd
+ *		- void LCD_Command(unsigned char cmd)	// sends general commands to lcd
+ *		- void LCD_Clear(void)					// clears lcd
+ *		- void Display_Character(char c)		// displays a character on LCD
+ *		- void Display_String(char* str)		// displays a string on LCD
+ *		- void dtos_display(double value)		// converts double to string and displays it on LCD
+ *		- void itos_display(int value)			// converts integer to string and displays it on LCD
+ */
+			
+/********************************** GPS **********************************/
+/*
+ * @ Authors: AhmedBakrXI & Ahmed-Khaled-Abdelmaksod
+ *	
+ *	requirements: GPS.h & GPS.c
+ *		
+ *  functions:
+ *		- double Distance(double arr[])			// calculates the total distance
+ *		- void readGPS(void)					// reads gps string and sets values
+ *		
+ */
+
+/********************************** GPIO **********************************/
+/*
+ * @ Authors: karimnabhan & AhmedEissaeng
+ *	
+ *	requirements: GPIO.h & GPIO.c
+ *		
+ *  functions:
+ *		
+ *		- void PortF_Init();                    // initialize Port F
+ *      - void PortB_Init();                    // initialize Port A
+ *      - void PortE_Init();                    // initialize Port E
+ *      - void PortD_Init();                    // initialize Port D
+ *      - void RGB(unsigned char color)         // turn on led with the arg color 
+ *		
+ */ 
+
+/********************************** SysTick **********************************/
+/*
+ * @ Authors: Muhammed-nassif
+ *	
+ *	requirements: SysTick.h & SysTick.c
+ *		
+ *  functions:
+ *		- void SysTick_Init()					// initialize systick timer
+ *		- void DelayUs(int n)					// delay n microseconds
+ *		- void Delayms(int n)					// delay n milliseconds
+ *		- void DelayS(int n)					// delay n second
+ */  
+
+/********************************** UART **********************************/
+/*
+ * @ Authors: MohammedMagdyy & MohanadKhh & Ahmed-Samir-Tharwat
+ *	
+ *	requirements: UART.h & UART.c
+ *		
+ *  functions:
+ *		- void UART_Init(pin)						// initialize UART
+ *		- void sendByte(unsigned char c, pin)		// send byte
+ *		- void sendString(char *str, pin)			// send array of bytes
+ *		- unsigned char recieveByte(pin)			// recieve byte
+ *		- unsigned char recieveString(char *str, pin)		// recieve string
+ */  
+
+/********************************** END **********************************/
