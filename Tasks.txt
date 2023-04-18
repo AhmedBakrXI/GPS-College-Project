@@ -12,14 +12,10 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
              |        PB6|---------------->|D6        |
              |        PB5|---------------->|D5        |
              |        PB4|---------------->|D4        |
-             |        PB3|---------------->|D3        |
-             |        PB2|---------------->|D2        |
-             |        PB1|---------------->|D1        |
-             |        PB0|---------------->|D0        |
              |           |                 |          |
-             |        PE3|---------------->|E         |
-             |        PE2|---------------->|RW        |
-             |        PE1|---------------->|RS        |
+             |        PB3|---------------->|E         |
+             |        PB2|---------------->|RW        |
+             |        PB1|---------------->|RS        |
              |           |                  ----------
              |           |          
              |           |                  ----------
@@ -34,7 +30,7 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
 /*
  * @ Authors: Abdelrahman-Ahmed-Abdelrahman & MohanedKhh
  *	
- *	requirements: LCD.h & LCD.c ## use 8-bit mode
+ *	requirements: LCD.h & LCD.c ## use 4-bit mode
  *		
  *  functions:
  *		- void LCD_Init(void)					// initialize lcd
@@ -66,7 +62,7 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
  *		
  *  functions:
  *		
- *		- void PortF_Init();                    // initialize Port F
+ *	- void PortF_Init();                    // initialize Port F
  *      - void PortB_Init();                    // initialize Port A
  *      - void PortE_Init();                    // initialize Port E
  *      - void PortD_Init();                    // initialize Port D
