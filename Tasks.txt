@@ -59,9 +59,9 @@
  *		
  *  	functions:
  *		
- *	- void PortF_Init();                    // initialize Port F
- *      - void PortB_Init();                    // initialize Port A
- *      - void RGB(unsigned char color)         // turn on led with the arg color 
+ *		- void PortF_Init();                    // initialize Port F
+ *      	- void PortB_Init();                    // initialize Port A
+ *      	- void RGB(unsigned char color)         // turn on led with the arg color 
  *		
  */ 
 
