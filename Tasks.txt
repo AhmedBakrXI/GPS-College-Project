@@ -1,10 +1,7 @@
-OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HIS TASK 
-
 /********************************* Tasks *********************************/
 
 	USE PD6, PD7 for UART
-	USE Port B for LCD data        "PB 0,1,2,3,4,5,6,7 ----> LCD Data pins 0,1,2,3,4,5,6,7"
-	Use Port E for LCD Control     "PE 1,2,3 ----> RS,RW,E"
+	USE Port B for LCD data        "PB 4,5,6,7 ----> LCD Data pins 4,5,6,7" & "PB 1,3 ----> RS,E" & "RW----> GND"
               -----------                   ----------
              |  TM4C123G |                 |   LCD    |
              |           |                 |          |
@@ -14,15 +11,15 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
              |        PB4|---------------->|D4        |
              |           |                 |          |
              |        PB3|---------------->|E         |
-             |        PB2|---------------->|RW        |
+             |        	 |		   |RW        | -----> GND
              |        PB1|---------------->|RS        |
              |           |                  ----------
              |           |          
              |           |                  ----------
              |           |                 |   GPS    |
              |           |                 |          |
-             |        PD6|---------------->|TX        |
-             |        PD7|---------------->|RX        |
+             |        PE4|---------------->|TX        |
+             |        	 |		   |RX        |
              |           |                 |          |
               -----------                   ----------
 
@@ -32,14 +29,13 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
  *	
  *	requirements: LCD.h & LCD.c ## use 4-bit mode
  *		
- *  functions:
- *		- void LCD_Init(void)					// initialize lcd
- *		- void LCD_Command(unsigned char cmd)	// sends general commands to lcd
- *		- void LCD_Clear(void)					// clears lcd
- *		- void Display_Character(char c)		// displays a character on LCD
- *		- void Display_String(char* str)		// displays a string on LCD
- *		- void dtos_display(double value)		// converts double to string and displays it on LCD
- *		- void itos_display(int value)			// converts integer to string and displays it on LCD
+ *  	functions:
+ *		- void lcd_init(void)						// initialize lcd
+ *		- void lcd_cmd(unsigned char cmd)	        		// sends general commands to lcd
+ *		- void lcd_write(unsigned char c, unsigned char ctrl)		// writes 4 bits "data or command"
+ *		- void lcd_char(unsigned char data, unsigned char ctrl)		// displays a character on LCD
+ *		- void lcd_str(char *str)					// displays a string on LCD
+ *		
  */
 			
 /********************************** GPS **********************************/
@@ -48,9 +44,10 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
  *	
  *	requirements: GPS.h & GPS.c
  *		
- *  functions:
- *		- double Distance(double arr[])			// calculates the total distance
+ *  	functions:
+ *		
  *		- void readGPS(void)					// reads gps string and sets values
+ *		- void calc_distance(void)				// calculates the total distance
  *		
  */
 
@@ -60,12 +57,10 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
  *	
  *	requirements: GPIO.h & GPIO.c
  *		
- *  functions:
+ *  	functions:
  *		
  *	- void PortF_Init();                    // initialize Port F
  *      - void PortB_Init();                    // initialize Port A
- *      - void PortE_Init();                    // initialize Port E
- *      - void PortD_Init();                    // initialize Port D
  *      - void RGB(unsigned char color)         // turn on led with the arg color 
  *		
  */ 
@@ -76,11 +71,11 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
  *	
  *	requirements: SysTick.h & SysTick.c
  *		
- *  functions:
+ *  	functions:
  *		- void SysTick_Init()					// initialize systick timer
  *		- void DelayUs(int n)					// delay n microseconds
  *		- void Delayms(int n)					// delay n milliseconds
- *		- void DelayS(int n)					// delay n second
+ *		
  */  
 
 /********************************** UART **********************************/
@@ -89,9 +84,9 @@ OUR MEETING WILL BE ON 24 APRIL 2023 TO DISCUSS WHAT EVERYONE HAS ACHEIVED IN HI
  *	
  *	requirements: UART.h & UART.c
  *		
- *  functions:
- *		- void UART_Init(pin)						// initialize UART
- *		- void sendByte(unsigned char c, pin)		// send byte
+ *  	functions:
+ *		- void UART5_Init(pin)					// initialize UART5
+ *		- void sendByte(unsigned char c, pin)			// send byte
  *		- void sendString(char *str, pin)			// send array of bytes
  *		- unsigned char recieveByte(pin)			// recieve byte
  *		- unsigned char recieveString(char *str, pin)		// recieve string
