@@ -1,6 +1,6 @@
 /********************************* Tasks *********************************/
 
-	USE PD6, PD7 for UART
+	USE PE4 for UART5 receiver
 	USE Port B for LCD data        "PB 4,5,6,7 ----> LCD Data pins 4,5,6,7" & "PB 1,3 ----> RS,E" & "RW----> GND"
               -----------                   ----------
              |  TM4C123G |                 |   LCD    |
