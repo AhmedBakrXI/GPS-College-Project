@@ -1,7 +1,7 @@
 /*
 * Name : Mohaned Khaled Hassan Hassan
 * ID : 2001372
-* Username : MohanadKhh
+* Username (GitHub) : MohanadKhh
 */
 
 #include "lcd.h"
