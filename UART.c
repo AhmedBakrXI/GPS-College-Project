@@ -68,15 +68,15 @@ void RECEIVE_STRING(char* str, int length){
         {
             /* code */
             c = RECEIVE_BYTE();          // recieving each character from  the string 
-																				 // put the recieved character at Char c
-            str[i] = c;									 // put the recieved Character in the location of pointer to char 
+					 // put the recieved character at Char c
+            str[i] = c;			 // put the recieved Character in the location of pointer to char 
 				}
 }
 
 // Function that send str
 void SEND_STRING(char* str){
-			while(*str){											// checking the pointer to char not empty
-					SEND_BYTE(*str);							// send the char which the pointer points to it
-				str++;													// increasing the pointer to point to the next char of the string
-				}																// then going to check the condition again
+			while(*str){							// checking the pointer to char not empty
+					SEND_BYTE(*str);				// send the char which the pointer points to it
+				str++;							// increasing the pointer to point to the next char of the string
+				}							// then going to check the condition again
 }
