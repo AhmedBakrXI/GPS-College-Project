@@ -26,3 +26,29 @@ void UART5_init(void){
     GPIO_PORTE_DIR_R |= (1<<5); // Set PE5 as output
     GPIO_PORTE_DIR_R &= ~(1<<4); // Set PE4 as input
 }
+
+
+/*
+Mohammed Magdy Mahrous
+2000927
+*/
+
+// Function that send char
+void SEND_BYTE(char c){
+		// checking full Flag 
+  	// while RXFF full , Busy wait 
+		// Until Data Register is empty
+    while((UART5_FR_R & 0x20) != 0);
+		// put the character whish will be sent in the Data Register
+	  UART5_DR_R = c;
+}
+
+// Function that Recieve char
+char RECEIVE_BYTE(){
+	  // checking Empty Flag 
+	  // while RXFE Empty , Busy wait 
+	  // Until recieving Data 
+    while((UART5_FR_R&0x10)!=0);
+	 // return the Recieved Data  
+    return (char)(UART5_DR_R&0xFF);
+}
