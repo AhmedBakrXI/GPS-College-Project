@@ -98,3 +98,77 @@ void SEND_4BITS(unsigned char c, unsigned char ctrl){	//Method name "SEND_4BITS"
     GPIO_PORTB_DATA_R = c;		//This sends the four least significant bits of the data or command to the LCD display.
     GPIO_PORTB_DATA_R = 0;		//This is done to disable the "EN" bit and signal the end of the data or command transmission.
 }
+
+******************************
+**********************************
+*************************************
+****************************************
+
+/*
+* Name: Abdelrahman Ahmed Abdelrahman Mahrous
+*ID: 2001760
+*Username: Abdelrahman-Ahmed-Abdelrahman (GitHub)
+*/
+void DISPLAY_CHAR(unsigned char data, unsigned char ctrl){		//Method name "DISPLAY_CHAR" with two input parameters "data" and "ctrl" of unsigned character data type.
+    
+	SEND_4BITS(data&0xF0, REG_SEL);
+	/*
+	This line calls the "SEND_4BITS" function to write the four most significant bits of "data" to the LCD display.
+	The "RS" parameter indicates that this is a data write operation, rather than a command write operation.
+	*/
+	
+    SEND_4BITS(data<<4, REG_SEL);
+	/*
+	This line calls the "SEND_4BITS" function to write the four least significant bits of "data" to the LCD display.
+	The "RS" parameter indicates that this is a data write operation, rather than a command write operation.
+	*/
+	
+    DelayMicro(40);	//This line adds a 40 microsecond delay to the function. This is done to allow the LCD display to process the character data.
+}
+
+
+
+/*
+This Method writes a string to the LCD display character-by-character by calling the "DISPLAY_CHAR" function in a loop.
+The function uses a character pointer to iterate through the string,
+and stops writing when it reaches the end of the string (indicated by the null terminator character '\0').
+*/
+void DISPLAY_STRING( char *str){	//Method name "DISPLAY_STRING" with one input parameter "str" of character pointer data type.
+    int i;	//integer variable "i" which will be used as the loop counter.
+	
+    for( i = 0; *str!=0; i++){
+        DISPLAY_CHAR(*(str++),REG_SEL);
+    }
+	/*
+	for loop that initializes "i" to 0, and continues iterating while the value pointed to by "str" is not equal to 0.
+	This means that the loop will continue as long as there are more characters in the string to be written.
+	*/
+}
+
+
+
+/*
+this function converts a double precision floating point number to a string using the sprintf function
+and displays the resulting string on an LCD display using the "DISPLAY_STRING" function.
+The resulting string is stored in a character array called "buff" which has a size of 16 characters.
+*/
+void LCD_intgerToString(double data)	//Method name "LCD_intgerToString" with one input parameter "data" of double data type.
+{
+    char buff[16];  //An array of characters called "buff" with a size of 16. This array will be used to hold the resulting string.
+	
+    sprintf(buff, "%f", data);
+/*
+This line converts the floating point number "data" to a string representation and stores in the "buff" array.
+The "%f" format tells it to format the floating point number as a decimal number with six digits after the decimal point.
+*/
+
+    DISPLAY_STRING(buff);		// Display the resulting string on the LCD display.
+}
+
+
+
+
+
+
+
+
