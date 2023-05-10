@@ -1,5 +1,6 @@
 /*
  *@ Author: Ahmed Eissa Mahfouz
+ *  ID:2001725
  *@ Author: Karim Mostafa Mohamed Roshdy Nabhan 
  *  ID:2001563
  *  Username: karimnabhan
@@ -22,4 +23,19 @@
 #define YELLOW  0X0A  // Assign yellow to value 0x010 we got it by adding red and green
 #define SKY     0X0C  // Assign Sky to value 0x0C
 #define WHITE   0X0E  // Assign white to value 0x0E
+//Prototypes
+/* initializes Port F by enabling the clock, unlocking the port, configuring the pins as GPIO, disabling analog mode,
+enabling pull-up resistors, and enabling digital functions. It does not take any arguments and does not return a value.
+*/
+void PortF_Init(void);
+/* initializes Port B by enabling the clock, unlocking the port, configuring the pins as GPIO, disabling analog mode,
+enabling pull-up resistors, and enabling digital functions. It does not take any arguments and does not return a value.
+*/
+void PortB_Init(void);
+/*the RGB_ON function turns on an LED with the specified color by setting the appropriate bits in the GPIO_PORTF_DATA_R register. 
+It takes one argument, color, which is an unsigned char representing the desired LED color. The function does not return a value.
+*/
+
+unsigned int PortF_Input(void);
+void RGB_ON(unsigned char color);
 
