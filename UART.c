@@ -52,3 +52,31 @@ char RECEIVE_BYTE(){
 	 // return the Recieved Data  
     return (char)(UART5_DR_R&0xFF);
 }
+
+
+/*
+Mostafa hessin ahmed qenawy
+2000931
+*/
+
+
+// Function that Recieve str
+void RECEIVE_STRING(char* str, int length){
+        char c;  	
+				int i;	
+        for ( i = 0; i < length; ++i) // looping on  the string
+        {
+            /* code */
+            c = RECEIVE_BYTE();          // recieving each character from  the string 
+																				 // put the recieved character at Char c
+            str[i] = c;									 // put the recieved Character in the location of pointer to char 
+				}
+}
+
+// Function that send str
+void SEND_STRING(char* str){
+			while(*str){											// checking the pointer to char not empty
+					SEND_BYTE(*str);							// send the char which the pointer points to it
+				str++;													// increasing the pointer to point to the next char of the string
+				}																// then going to check the condition again
+}
