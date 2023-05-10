@@ -99,10 +99,12 @@ void SEND_4BITS(unsigned char c, unsigned char ctrl){	//Method name "SEND_4BITS"
     GPIO_PORTB_DATA_R = 0;		//This is done to disable the "EN" bit and signal the end of the data or command transmission.
 }
 
-******************************
-**********************************
-*************************************
-****************************************
+
+
+//******************************
+//**********************************
+//*************************************
+
 
 /*
 * Name: Abdelrahman Ahmed Abdelrahman Mahrous
