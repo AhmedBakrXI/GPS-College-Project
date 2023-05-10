@@ -1,24 +1,43 @@
+#include "GPIO.h"
+#include "tm4c123gh6pm.h"
 
 
+/*
+*
+*@Author:Ahmed Eissa Mahfouz
+* ID:2001725
+*@Author:Karim Mostafa Mohamed
+* ID:2001563
+*
+*   Ports Intialization
+*
+*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include "GPIO.h"
+/* initializes Port B by enabling the clock, unlocking the port, configuring the pins as GPIO, disabling analog mode,
+enabling pull-up resistors, and enabling digital functions. It does not take any arguments and does not return a value.
+*/
+void PortB_Init(void)
+{
+	SYSCTL_RCGC2_R|=0x00000002;					// activate Port B
+	while((SYSCTL_PRGPIO_R&0x00000002)==0){};					// delay
+	GPIO_PORTB_CR_R=0xFA;		      // allow changes to PB1,PB3,PB7-4
+	GPIO_PORTB_DEN_R=0xFA;        // digital I/O on PB1,PB3,PB7-4
+	GPIO_PORTB_DIR_R=0xFA;        // PB1,PB3,PB7-4 outputs
+	GPIO_PORTB_PUR_R=0xFA; 		    // pull-up on PB1,PB3,PB7-4
+	GPIO_PORTB_AMSEL_R=0x00; 		    // disable analog function
+    GPIO_PORTB_AFSEL_R=0x00; 		    // disable alternate functions
+	GPIO_PORTB_PCTL_R=0x00000000; 		    // GPIO clear bit PCTL
+	GPIO_PORTB_LOCK_R=0X4C4F434B;         // unlock GPIO Port B
+}
+void PortB_Output(unsigned int data)
+{
+	GPIO_PORTB_DATA_R=data;        // write PB1,PB3,PB7-4 outputs
+}
+/* initializes Port F by enabling the clock, unlocking the port, configuring the pins as GPIO, disabling analog mode,
+enabling pull-up resistors, and enabling digital functions. It does not take any arguments and does not return a value.
+*/
 void PortF_Init(void)
 {
 	SYSCTL_RCGCGPIO_R |= 0x20;     // enable clock for Port F
