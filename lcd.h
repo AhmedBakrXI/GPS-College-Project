@@ -23,3 +23,30 @@
 void InitializeLCD(void);
 void Command(unsigned char cmd);
 void SEND_4BITS(unsigned char c, unsigned char ctrl);
+
+
+
+//********************************
+//************************************
+//*****************************************
+
+
+
+
+
+/* 
+ Name: Abdelrahman Ahmed Abdelrahman Mahrous
+ ID:2001760
+ Username: Abdelrahman-Ahmed-Abdelrahman (GitHub)
+
+
+*/
+void DISPLAY_CHAR(unsigned char data, unsigned char ctrl);
+void DISPLAY_STRING( char *str);
+void LCD_intgerToString(double data);
+
+
+#endif
+
+
+
