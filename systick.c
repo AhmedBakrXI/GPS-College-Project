@@ -3,8 +3,6 @@
  *@ Author: Muhammed ahmed abd-elgawad nassif 
  *  ID:2001771
  *  Username: Muhammed-nassif
- *  Date: 18/4/2023
- *  Time: 6:00 PM
  *
  */
  
@@ -16,7 +14,7 @@
  * Return type: void
  *
  ******************************************/
-void SysTick_Init(void){
+void SYSTICK_ENABLE(void){
 	NVIC_ST_CTRL_R = 0;					// Disable systick timer
 	NVIC_ST_RELOAD_R = 80-1;		// Load 80 counts to reload register for 1 microsecond count
 	NVIC_ST_CURRENT_R = 0;			// Clear the counter 
@@ -24,26 +22,30 @@ void SysTick_Init(void){
 }
 
 /******************************************/
-/* Function: Delays n microsecond
+/*
+ * This function delays n microsecond by looping while count flag is not set
  * Parameters : void
  * Return type: void
  */
-void delay_us(int count){
-	int i;
-	for( i = 0; i<count; i++){
+void DelayMicro(int count){
+	int i = 0;
+	while(i!=count){
 		while((NVIC_ST_CTRL_R&0x10000)==0){}		// Loop while count flag is down
+		i++;
 	}
 }
 
 /******************************************/
-/* Function: Delays n millisecond
+/* 
+ * This function loops for n milli second
  * Parameters : void
  * Return type: void
  */
-void delay_ms(int count){
-	int i ;
-	for( i = 0; i<(count*1000); i++){
-		delay_us(1);		// 1 us								// loop for count milliseconds
+void DelayMilli(int count){
+	int i =0;
+	while(i<(count*1000)){
+		DelayMicro(1);								// loop for count milliseconds
+		i++;
 	}
 }
 /************** END OF FILE *****************/
