@@ -40,7 +40,7 @@ enabling pull-up resistors, and enabling digital functions. It does not take any
 void PortF_Init(void)
 {
 	SYSCTL_RCGCGPIO_R |= 0x20;     // enable clock for Port F
-    while((SYSCTL_PRGPIO_R&0x02)==0) {}; //delay 
+    while((SYSCTL_PRGPIO_R&0x20)==0) {}; //delay 
     GPIO_PORTF_LOCK_R = 0x4C4F434B; // unlock GPIO Port F
     GPIO_PORTF_CR_R = 0x1F;        // allow changes to PF4-0
     GPIO_PORTF_AMSEL_R = 0x00;     // disable analog function
